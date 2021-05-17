@@ -48,14 +48,6 @@ const PRODUCTS = [
     'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
     "Can be used for role-playing (not the kind of role-playing you're thinking about...).",
     5.49
-  ),
-  new Product(
-    'p7',
-    'u3',
-    'SecondHand Jeans',
-    'https://images.pexels.com/photos/4210866/pexels-photo-4210866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    "Second hand is not a Third, give it Second Life",
-    7.77
   )
 ];
 

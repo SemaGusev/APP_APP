@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
 import { createStore, combineReducers } from 'redux';
-import { createSelectorHook, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
 import productsReducer from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
+import ordersReducer from './store/reducers/orders';
 import ShopNavigator from './navigation/ShopNavigator';
-import { createStackNavigator } from 'react-navigation-stack';
 
 const rootReducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: ordersReducer
 });
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 
 // const fetchFonts = () => {
 //   return Font.loadAsync({
-//     "roboto": require('./assets/Roboto/Roboto-Black.ttf'),
-//     "roboto-bold": require('./assets/Roboto/Roboto-Bold.ttf')
-// });
-// }
+//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+//   });
+// };
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false)
+  const [fontLoaded, setFontLoaded] = useState(false);
 
-  // if(!fontLoaded) {
+  // if (!fontLoaded) {
   //   return (
-  //     <AppLoading 
-  //     startAsync={fetchFonts}
-  //     onFinish={() => {
-  //       setFontLoaded(true)
-  //     }}
+  //     <AppLoading
+  //       startAsync={fetchFonts}
+  //       onFinish={() => {
+  //         setFontLoaded(true);
+  //       }}
   //     />
-  //   )
+  //   );
   // }
-
   return (
     <Provider store={store}>
       <ShopNavigator />

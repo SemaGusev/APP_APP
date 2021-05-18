@@ -14,10 +14,11 @@ const OrdersScreen = props => {
       data={orders}
       keyExtractor={item => item.id}
       renderItem={itemData => (
-      <OrderItem  
-        amount={itemData.item.totalAmount} 
-        date={itemData.item.readableDate} 
-      /> 
+        <OrderItem
+          amount={itemData.item.totalAmount}
+          date={itemData.item.readableDate}
+          items={itemData.item.items}
+        />
       )}
     />
   );
@@ -26,17 +27,17 @@ const OrdersScreen = props => {
 OrdersScreen.navigationOptions = navData => {
   return {
     headerTitle: 'Your Orders',
-    headerLeft: (
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      ),
+    headerLeft: ( () =>
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    )
   };
 };
 

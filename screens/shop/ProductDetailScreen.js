@@ -24,7 +24,7 @@ const ProductDetailScreen = props => {
       <Image style={styles.image} source={{ uri: selectedProduct.imageUrl }} />
       <View style={styles.actions}>
         <Button
-          color={Colors.accent}
+          color={Colors.primary}
           title="Add to Cart"
           onPress={() => {
             dispatch(cartActions.addToCart(selectedProduct));
@@ -46,7 +46,7 @@ ProductDetailScreen.navigationOptions = navData => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 390
+    height: 300
   },
   actions: {
     marginVertical: 10,

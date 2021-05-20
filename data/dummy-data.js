@@ -45,7 +45,7 @@ const PRODUCTS = [
     'p6',
     'u1',
     'Носки Край',
-    'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
+    'https://sun1-24.userapi.com/impg/EBmvXNSgXr19_Zp729xe9tFlwURKw-ZKaKGXig/v9XlVF_nqKY.jpg?size=520x0&quality=95&sign=9fe0d744f08c0fea5469ee05149bc397',
     "Носки Край Котик в штанах. Состав: 80% хлопок, 17% полиамид, 3% эластан. Размеры 34-37, 38-41, 42-46.",
     9.90
   ),

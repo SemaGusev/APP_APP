@@ -17,10 +17,10 @@ const UserProductsScreen = props => {
   };
 
   const deleteHandler = (id) => {
-    Alert.alert('Are you sure?', 'Do you really want to delete this item?', [
-      { text: 'No', style: 'default' },
+    Alert.alert('Вы уверены?', 'Вы действительно хотите удалить этот товар?', [
+      { text: 'Нет', style: 'default' },
       {
-        text: 'Yes',
+        text: 'Да',
         style: 'destructive',
         onPress: () => {
           dispatch(productsActions.deleteProduct(id));
@@ -44,14 +44,14 @@ const UserProductsScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title="Edit"
+            title="Редактировать"
             onPress={() => {
               editProductHandler(itemData.item.id);
             }}
           />
           <Button
             color={Colors.primary}
-            title="Delete"
+            title="Удалить"
             onPress={deleteHandler.bind(this, itemData.item.id)}
           />
         </ProductItem>
@@ -62,7 +62,7 @@ const UserProductsScreen = props => {
 
 UserProductsScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Your Products',
+    headerTitle: 'Товары',
     headerLeft: ( () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item

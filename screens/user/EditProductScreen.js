@@ -64,8 +64,8 @@ const EditProductScreen = props => {
 
   const submitHandler = useCallback(() => {
     if (!formState.formIsValid) {
-      Alert.alert('Wrong input!', 'Please check the errors in the form.', [
-        { text: 'Okay' }
+      Alert.alert('Неверные данные!', 'Введите корректные данные о товаре.', [
+        { text: 'Сделаю' }
       ]);
       return;
     }
@@ -117,8 +117,8 @@ const EditProductScreen = props => {
         <View style={styles.form}>
           <Input
             id="title"
-            label="Title"
-            errorText="Please enter a valid title!"
+            label="Заглавие"
+            errorText="Пожалуйста, введите корректные данные для заглавия!"
             keyboardType="default"
             autoCapitalize="sentences"
             autoCorrect
@@ -130,8 +130,8 @@ const EditProductScreen = props => {
           />
           <Input
             id="imageUrl"
-            label="Image Url"
-            errorText="Please enter a valid image url!"
+            label="Url фотографии"
+            errorText="Пожалуйста, введите корректные данные для фотографии!"
             keyboardType="default"
             returnKeyType="next"
             onInputChange={inputChangeHandler}
@@ -142,8 +142,8 @@ const EditProductScreen = props => {
           {editedProduct ? null : (
             <Input
               id="price"
-              label="Price"
-              errorText="Please enter a valid price!"
+              label="Цена"
+              errorText="Пожалуйста, введите корректные данные для цены!"
               keyboardType="decimal-pad"
               returnKeyType="next"
               onInputChange={inputChangeHandler}
@@ -153,8 +153,8 @@ const EditProductScreen = props => {
           )}
           <Input
             id="description"
-            label="Description"
-            errorText="Please enter a valid description!"
+            label="Описание товара"
+            errorText="Пожалуйста, введите корректные данные для описания!"
             keyboardType="default"
             autoCapitalize="sentences"
             autoCorrect
@@ -176,12 +176,12 @@ EditProductScreen.navigationOptions = navData => {
   const submitFn = navData.navigation.getParam('submit');
   return {
     headerTitle: navData.navigation.getParam('productId')
-      ? 'Edit Product'
-      : 'Add Product',
+      ? 'Редактировать'
+      : 'Добавить овар',
     headerRight: (() =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          title="Save"
+          title="Сохранить"
           iconName={
             Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
           }

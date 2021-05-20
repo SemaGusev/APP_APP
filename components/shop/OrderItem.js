@@ -11,12 +11,12 @@ const OrderItem = props => {
   return (
     <Card style={styles.orderItem}>
       <View style={styles.summary}>
-        <Text style={styles.totalAmount}>${props.amount.toFixed(2)}</Text>
+        <Text style={styles.totalAmount}>Br {props.amount.toFixed(2)}</Text>
         <Text style={styles.date}>{props.date}</Text>
       </View>
       <Button
         color={Colors.primary}
-        title={showDetails ? 'Hide Details' : 'Show Details'}
+        title={showDetails ? 'Скрыть' : 'Детали'}
         onPress={() => {
           setShowDetails(prevState => !prevState);
         }}

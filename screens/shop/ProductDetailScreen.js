@@ -25,13 +25,13 @@ const ProductDetailScreen = props => {
       <View style={styles.actions}>
         <Button
           color={Colors.primary}
-          title="Add to Cart"
+          title="Добавить в корзину"
           onPress={() => {
             dispatch(cartActions.addToCart(selectedProduct));
           }}
         />
       </View>
-      <Text style={styles.price}>${selectedProduct.price.toFixed(2)}</Text>
+      <Text style={styles.price}>Br {selectedProduct.price.toFixed(2)}</Text>
       <Text style={styles.description}>{selectedProduct.description}</Text>
     </ScrollView>
   );
@@ -46,7 +46,8 @@ ProductDetailScreen.navigationOptions = navData => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 300
+    height: 400,
+    alignItems: 'center'
   },
   actions: {
     marginVertical: 10,

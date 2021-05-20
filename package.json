@@ -26,6 +26,7 @@
     "react-redux": "^7.2.4",
     "reduce-reducers": "^1.0.4",
     "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "store": "^2.0.12"
   },
   "devDependencies": {

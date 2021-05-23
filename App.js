@@ -24,6 +24,7 @@ const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 //     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
 //   });
 // };
+// some comment
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);

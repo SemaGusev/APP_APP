@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Button, Platform, Alert } from 'react-native';
+import { View, Text, FlatList, Button, Platform, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -16,11 +16,11 @@ const UserProductsScreen = props => {
     props.navigation.navigate('EditProduct', { productId: id });
   };
 
-  const deleteHandler = (id) => {
-    Alert.alert('Вы уверены?', 'Вы действительно хотите удалить этот товар?', [
-      { text: 'Нет', style: 'default' },
+  const deleteHandler = id => {
+    Alert.alert('Are you sure?', 'Do you really want to delete this item?', [
+      { text: 'No', style: 'default' },
       {
-        text: 'Да',
+        text: 'Yes',
         style: 'destructive',
         onPress: () => {
           dispatch(productsActions.deleteProduct(id));
@@ -28,6 +28,14 @@ const UserProductsScreen = props => {
       }
     ]);
   };
+
+  if (userProducts.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>No products found, maybe start creating some?</Text>
+      </View>
+    );
+  }
 
   return (
     <FlatList
@@ -44,14 +52,14 @@ const UserProductsScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title="Редактировать"
+            title="Edit"
             onPress={() => {
               editProductHandler(itemData.item.id);
             }}
           />
           <Button
             color={Colors.primary}
-            title="Удалить"
+            title="Delete"
             onPress={deleteHandler.bind(this, itemData.item.id)}
           />
         </ProductItem>
@@ -62,8 +70,8 @@ const UserProductsScreen = props => {
 
 UserProductsScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Товары',
-    headerLeft: ( () =>
+    headerTitle: 'Your Products',
+    headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Menu"
@@ -74,7 +82,7 @@ UserProductsScreen.navigationOptions = navData => {
         />
       </HeaderButtons>
     ),
-    headerRight:( () =>
+    headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Add"

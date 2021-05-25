@@ -68,12 +68,6 @@ const EditProductScreen = props => {
   });
 
   useEffect(() => {
-    if(error) {
-      Alert.alert('An error occured!', error, [{text: 'Okay'}])
-    }
-  }, [error])
-
-  useEffect(() => {
     if (error) {
       Alert.alert('An error occurred!', error, [{ text: 'Okay' }]);
     }
@@ -212,7 +206,7 @@ EditProductScreen.navigationOptions = navData => {
     headerTitle: navData.navigation.getParam('productId')
       ? 'Edit Product'
       : 'Add Product',
-    headerRight: (() =>
+    headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Save"

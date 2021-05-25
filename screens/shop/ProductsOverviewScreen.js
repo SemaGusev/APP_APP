@@ -65,7 +65,7 @@ const ProductsOverviewScreen = props => {
       <View style={styles.centered}>
         <Text>An error occurred!</Text>
         <Button
-          title="Попробуйте снова"
+          title="Try again"
           onPress={loadProducts}
           color={Colors.primary}
         />
@@ -106,14 +106,14 @@ const ProductsOverviewScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title="Детали"
+            title="View Details"
             onPress={() => {
               selectItemHandler(itemData.item.id, itemData.item.title);
             }}
           />
           <Button
             color={Colors.primary}
-            title="В корзину"
+            title="To Cart"
             onPress={() => {
               dispatch(cartActions.addToCart(itemData.item));
             }}
@@ -126,8 +126,8 @@ const ProductsOverviewScreen = props => {
 
 ProductsOverviewScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Все товары',
-    headerLeft: (() => 
+    headerTitle: 'All Products',
+    headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Menu"
@@ -153,11 +153,7 @@ ProductsOverviewScreen.navigationOptions = navData => {
 };
 
 const styles = StyleSheet.create({
-  centered: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
-  }
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center' }
 });
 
 export default ProductsOverviewScreen;

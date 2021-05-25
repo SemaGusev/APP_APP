@@ -48,7 +48,7 @@ const CartScreen = props => {
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
-            Br {Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
+            ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
           </Text>
         </Text>
         {isLoading ? (
@@ -56,7 +56,7 @@ const CartScreen = props => {
         ) : (
           <Button
             color={Colors.accent}
-            title="Купить"
+            title="Order Now"
             disabled={cartItems.length === 0}
             onPress={sendOrderHandler}
           />
@@ -82,7 +82,7 @@ const CartScreen = props => {
 };
 
 CartScreen.navigationOptions = {
-  headerTitle: 'Ваши заказы'
+  headerTitle: 'Your Cart'
 };
 
 const styles = StyleSheet.create({
